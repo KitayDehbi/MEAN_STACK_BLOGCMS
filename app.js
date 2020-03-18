@@ -11,7 +11,7 @@ var passport = require('passport');
 var auth = require('./routes/auth');
 var category = require('./routes/category');
 var post = require('./routes/post');
-
+const cors = require('cors');
 app.use(passport.initialize());
 app.use('/api/auth', auth);
 app.use('/api/category', category);
@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use(cors);
 mongoose.connect('mongodb://localhost/blog-cms', {
  promiseLibrary: require('bluebird'),
  useNewUrlParser: true,

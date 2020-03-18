@@ -6,7 +6,7 @@ require('../config/passport')(passport);
 var express = require('express');
 var jwt = require('jsonwebtoken');
 var router = express.Router();
-var Category = require("../models/category");
+var Category = require("../models/Category");
 // router for categoryList
 router.get('/', passport.authenticate('jwt', { session: false}), function(req, res) {
     var token = getToken(req.headers);

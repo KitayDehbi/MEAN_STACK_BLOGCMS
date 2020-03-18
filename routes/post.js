@@ -6,9 +6,9 @@ require('../config/passport')(passport);
 var express = require('express');
 var jwt = require('jsonwebtoken');
 var router = express.Router();
-var Post = require("../models/category");
+var Post = require("../models/Category");
 
-// route to get list of psts
+// route to get list of ppts
 
 router.get('/', passport.authenticate('jwt', { session: false}), function(req, res) {
     var token = getToken(req.headers);
